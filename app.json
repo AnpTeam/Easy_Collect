@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "EasyCollectApp",
-    "slug": "EasyCollectApp",
-    "scheme": "easycollect",
+    "name": "EasyCollect",
+    "slug": "EasyCollect",
+    "scheme": "easycollect" ,
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "package" : "com.jsm.easycollect"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package" : "com.jsm.easycollect"
     },
     "web": {
       "favicon": "./assets/favicon.png"
