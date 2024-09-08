@@ -12,17 +12,16 @@ export default function App() {
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{height: '100%'}}> 
       <View className="w-full justify-center items-center min-h-[85vh] px-4">
-        <Image 
-        scoure={images.logo}
-        className="w-[130px] h-[84px]"
+      <Image
+        source={images.logo}
         resizeMode="contain"
-        />
-
-        <Image 
-        scoure={images.cards}
-        className="max-w-[380px] w-full h-[300px]"
+        className="w-[345px] h-[105px] my-[25px]"
+       />
+      <Image
+        source={images.cards}
         resizeMode="contain"
-        />
+        className="w-[700px] h-[350px]"
+       />       
 
         <View className="relative mt-5">
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
@@ -32,7 +31,7 @@ export default function App() {
 
         <Image
           source={images.path}
-          className="w-[136px] h-[15ox] absolute -bottom-2 absolute 
+          className="w-[136px] h-[12px] absolute -bottom-2 absolute 
           -bottom- -right-8"
           resizeMode="contain"
           />
