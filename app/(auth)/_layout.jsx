@@ -11,7 +11,7 @@ const _layout = () => {
             <Stack.Screen name='sign-up' options={{headerShown:false}}/>
         </Stack>
 
-        <StatusBar backgroundColor='#161622' style='light'/>
+        <StatusBar backgroundColor='#161622' style='dark'/>
     </>
   )
 }

@@ -9,16 +9,16 @@ import { signOut } from '../../lib/appwrite';
 import { router } from 'expo-router';
 
 const profile = () => {
-  const {user,setUser,setIsLoggedIn} = 
-  useGlobalContext();
+  const { user, setUser, setIsLogged } = useGlobalContext();
 
-const logout = async () =>{
-  await signOut 
-  setUser(null)
-  setIsLoggedIn(false)
+  const logout = async () => {
+    await signOut();
+    setUser(null);
+    setIsLogged(false);
 
-  router.replace('/sign-in')
-}
+    router.replace("/sign-in");
+  };
+
 
   return (
     <SafeAreaView className="bg-primary h-full">

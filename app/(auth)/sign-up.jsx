@@ -2,7 +2,7 @@ import { View, Text,ScrollView,Image,Alert } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FormField from '../../components/FormField';
-import {Link} from 'expo-router';
+import {Link , router} from 'expo-router';
 import CustomButton from '../../components/CustomButton';
 import { images } from '../../constants';
 
@@ -12,23 +12,25 @@ import { useGlobalContext } from '../../context/GlobalProvider';
 const SignUp = () => {
 const { setUser, setIsLogged } = useGlobalContext();
 {/* for make State of variable */}
-const [form,setForm] = useState({
-        email:'' ,
-        username:'',
-        password:''
-})
-{/* for make State of variable */}
 const [isSubmitting, setSubmitting] = useState(false);
+{/* for make form of variable */}
+const [form,setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    phone:"",
+    room_number:""
+})
 
 {/* for make link to submit */}
 const submit = async () => {
-    if (form.username === "" || form.email === "" || form.password === "") {
+    if (form.email === "" || form.password === "" ||form.username === "" ||form.phone === "" ||form.room_number === "") {
         Alert.alert("Error", "Please fill in all fields");
       }
   
       setSubmitting(true);
       try {
-        const result = await createUser(form.email, form.password, form.username);
+        const result = await createUser(form.email, form.password, form.username ,form.phone,form.room_number);
         setUser(result);
         setIsLogged(true);
   
@@ -85,9 +87,27 @@ return (
                     placeholder={'password'}
                 />
 
-                {/* Sign in Button */}
+                <FormField
+                    title="phone"
+                    value={form.phone}
+                    handleChangeText={(e) => setForm({...form,phone:e})}
+                    otherStyles="mt-7"
+                    keyboardtype="phone"
+                    placeholder={'XxxXxxXxxx'}
+                />
+
+                <FormField
+                    title="Room Number"
+                    value={form.room_number}
+                    handleChangeText={(e) => setForm({...form,room_number:e})}
+                    otherStyles="mt-7"
+                    keyboardtype="RoomNumber"
+                    placeholder={'XXX'}
+                />
+
+                {/* Sign up Button */}
                 <CustomButton
-                    title="Sign In"
+                    title="Sign Up"
                     handlePress={submit}
                     containerStyles="mt-7"
                     isLoading={isSubmitting}
