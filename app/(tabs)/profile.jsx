@@ -14,9 +14,9 @@ const profile = () => {
   useGlobalContext();
 
 const logout = async () =>{
-  await signOut 
+  await signOut();
   setUser(null)
-  setIsLoggedIn(false)
+  setIsLogged(false)
 
   router.replace('/sign-in')
 }
