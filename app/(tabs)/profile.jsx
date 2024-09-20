@@ -1,25 +1,25 @@
-import { StyleSheet, Text, View ,FlatList ,Image, Alert, Pressable ,TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View, FlatList, Image, Alert, Pressable, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import {icons} from '../../constants'
-import {images} from '../../constants'
+import { icons } from '../../constants'
+import { images } from '../../constants'
 import { useGlobalContext } from '../../context/GlobalProvider';
 import { signOut } from '../../lib/appwrite';
 import { router } from 'expo-router';
 import InfoBox from '../../components/InfoBox';
 
 const profile = () => {
-  const {user,setUser,setIsLogged} =  
-  useGlobalContext();
+  const { user, setUser, setIsLogged } =
+    useGlobalContext();
 
-const logout = async () =>{
-  await signOut();
-  setUser(null)
-  setIsLogged(false)
+  const logout = async () => {
+    await signOut();
+    setUser(null)
+    setIsLogged(false)
 
-  router.replace('/sign-in')
-}
+    router.replace('/sign-in')
+  }
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -39,31 +39,31 @@ const logout = async () =>{
           <>
             <View className="my-6 px-4">
               <TouchableOpacity
-              className='w-fill items-end mb-10'
-              onPress={logout}
+                className='w-fill items-end mb-10'
+                onPress={logout}
               >
-                <Image 
-                source={icons.logout}
-                resizeMode='contain'
-                className='w-6 h-6'
+                <Image
+                  source={icons.logout}
+                  resizeMode='contain'
+                  className='w-6 h-6'
                 />
               </TouchableOpacity>
 
 
               {/* ส่วนของชื่อบัญชี */}
               <View className="flex items-center">
-                  <Image
-                    source={images.logo}
-                    resizeMode="contain"
-                    className="w-[345px] h-[105px]"
+                <Image
+                  source={images.logo}
+                  resizeMode="contain"
+                  className="w-[345px] h-[105px]"
+                />
+                <Text className="font-medium text-gray-100 text-sm">
+                  <InfoBox
+                    title={user?.username}
+                    containerStyles='mt-1'
+                    titleStyles="text-lg-gray"
                   />
-                  <Text className="font-medium text-gray-100 text-sm">
-                    <InfoBox
-                      title={user?.username}
-                      containerStyles='mt-1'  
-                      titleStyles="text-lg-gray"
-                    />
-                  </Text>
+                </Text>
 
               </View>
 
@@ -71,11 +71,11 @@ const logout = async () =>{
               <View className="flex flex-row justify-between border-t border-b border-gray-600 py-4 mt-6">
                 <  View className="flex items-center mx-10 p-3">
                   <Pressable onPress={() => Alert.alert('0972407510')}>
-                  <Image
-                    source={images.staff}
-                    resizeMode="contain"
-                    className="w-[50px] h-[50px]"
-                  />
+                    <Image
+                      source={images.staff}
+                      resizeMode="contain"
+                      className="w-[50px] h-[50px]"
+                    />
                   </Pressable>
                   <Text className="font-medium text-gray-100 text-sm">Contact Staff</Text>
                 </View>
@@ -85,57 +85,67 @@ const logout = async () =>{
                     source={images.star}
                     resizeMode="contain"
                     className="w-[50px] h-[50px]"
-                  /> 
+                  />
                   <Text className="font-medium text-gray-100 text-sm">Rating History</Text>
                 </View>
               </View>
 
+              <View >
+                <View className="mb-4">
+                  <Text className="flex items-center text-white mb-2">
+                    <Image
+                      source={images.star}
+                      resizeMode="contain"
+                      className="w-5 h-5 mr-2"
+                    />
+                    E-mail
+                  </Text>
 
-              
-              <View>
-              <Text className="font-medium text-gray-100 text-sm">
-                  <Image
-                    source={images.star}
-                    resizeMode="contain"
-                    className="w-[15px] h-[15px]"
-                  /> 
-                E-mail</Text> 
-                <Text className="font-medium text-gray-100 text-sm">
+                  <View className="bg-gray-800 p-3 rounded-lg">
                     <InfoBox
                       title={user?.email}
-                      containerStyles='mt-5'
-                      titleStyles="text-lg-gray"
-                    />                    
-                  </Text>    
+                      containerStyles="mt-1"
+                      titleStyles="text-white text-left font-medium "
+                    />
+                  </View>
+                </View>
 
-                  <Text className="font-medium text-gray-100 text-sm">
-                  <Image
-                    source={images.star}
-                    resizeMode="contain"
-                    className="w-[15px] h-[15px]"
-                  /> 
-                Room ID</Text> 
-                <Text className="font-medium text-gray-100 text-sm">
+                <View className="mb-4">
+                  <Text className="flex items-center text-white mb-2">
+                    <Image
+                      source={images.star}
+                      resizeMode="contain"
+                      className="w-5 h-5 mr-2"
+                    />
+                    Room ID
+                  </Text>
+
+                  <View className="bg-gray-800 p-3 rounded-lg">
                     <InfoBox
                       title={user?.room_number}
-                      containerStyles='mt-5'
-                      titleStyles="text-lg-gray"
-                    />                    
-                  </Text>   
-                  <Text className="font-medium text-gray-100 text-sm">
-                  <Image
-                    source={images.star}
-                    resizeMode="contain"
-                    className="w-[15px] h-[15px]"
-                  /> 
-                Tel</Text> 
-                <Text className="font-medium text-gray-100 text-sm">
-                    <InfoBox
+                      containerStyles="mt-1"
+                      titleStyles="text-white text-left font-medium"
+                    />
+                  </View>
+                </View>
+                <View className="mb-4">
+                  <Text className="flex items-center text-white mb-2">
+                    <Image
+                      source={images.star}
+                      resizeMode="contain"
+                      className="w-5 h-5 mr-2"
+                    />
+                    Tel
+                  </Text>
+
+                  <View className="bg-gray-800 p-3 rounded-lg">
+                    <InfoBox    
                       title={user?.phone}
-                      containerStyles='mt-5'
-                      titleStyles="text-lg-gray"
-                    />                    
-                  </Text>  
+                      containerStyles="mt-1"
+                      titleStyles="text-white text-left font-medium"
+                    />
+                  </View>
+                </View>
               </View>
             </View>
           </>
