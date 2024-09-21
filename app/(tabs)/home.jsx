@@ -23,15 +23,35 @@ const [refreshing, setRefreshing] = useState(false)
     setRefreshing(false);
   }
 
+
+  //  const dataMock = [
+  //    {
+  //      id: 1,
+  //      title: 'test1',
+  //      video: 'https://www.youtube.com/watch?v=vNlHMb12yNg',
+  //      creator: {
+  //        username: 'username1',
+  //       avatar: null
+  //     }
+  //   }
+  // ]
+
+
   console.log(posts)
+
 
   return (
     <SafeAreaView className="bg-primary border-2 h-full">
           <FlatList
-             data={posts}           
+             //data={dataMock}  
+             data={posts}         
             keyExtractor={(item) => item.$id}
             renderItem={({item}) => (
-              <VideoCard />
+              <VideoCard title={item.title}
+              thumbnail={item.thumbnail}
+              video={item.video}
+              creator={item.creator.username}
+              avatar={item.creator.avatar}/>
             )}
 
             ListHeaderComponent={() =>(

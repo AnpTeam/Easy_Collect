@@ -1,8 +1,9 @@
-import {View,Text, Touchable, TouchableOpacity} from 'react-native'
+import {View,Text, Touchable, TouchableOpacity,Image} from 'react-native'
+import { icons } from '../constants'
 import React, { useState } from 'react'
 
-const VideoCard = ({ video: {title,thumbnail,video,
-    creator: {username, avatar}} }) => {
+const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
+    const [play, setPlay] = useState(false);
     return(
         <View className="flex-col items-center px-4 mb-14">
             <View className="flex-row gap-3 items-start">
@@ -18,7 +19,7 @@ const VideoCard = ({ video: {title,thumbnail,video,
                             {title}
                         </Text>
                         <Text className="text-xs text-gray-100 font-pregular" numberOfLines={1} >
-                            {username ? username : 'test'}
+                            {creator}
                         </Text>
                     </View>
                 </View>
