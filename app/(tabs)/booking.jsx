@@ -23,19 +23,19 @@ const Booking = () => {
 
 
   const data = [
-    { label: '1 AM - 2 AM', value: '1' },
-    { label: '2 AM - 3 AM', value: '2' },
-    { label: '3 AM - 4 AM', value: '3' },
-    { label: '4 AM - 5 AM', value: '4' },
-    { label: '5 AM - 6 AM', value: '5' },
-    { label: '6 AM - 7 AM', value: '6' },
-    { label: '7 AM - 8 AM', value: '7' },
-    { label: '8 AM - 9 AM', value: '8' },
-    { label: '9 AM - 10 AM', value: '9' },
-    { label: '10 AM - 11 AM', value: '5' },
-    { label: '11 AM - 12 AM', value: '11' },
-    { label: '12 PM - 13 PM', value: '12' },
-    { label: '13 PM - 14 PM', value: '13' },
+    { label: '1 AM - 2 AM', value: '1 AM - 2 AM' },
+    { label: '2 AM - 3 AM', value: '2 AM - 3 AM' },
+    { label: '3 AM - 4 AM', value: '3 AM - 4 AM' },
+    { label: '4 AM - 5 AM', value: '4 AM - 5 AM' },
+    { label: '5 AM - 6 AM', value: '5 AM - 6 AM' },
+    { label: '6 AM - 7 AM', value: '6 AM - 7 AM' },
+    { label: '7 AM - 8 AM', value: '7 AM - 8 AM' },
+    { label: '8 AM - 9 AM', value: '8 AM - 9 AM' },
+    { label: '9 AM - 10 AM', value: '9 AM - 10 AM' },
+    { label: '10 AM - 11 AM', value: '10 AM - 11 AM' },
+    { label: '11 AM - 12 AM', value: '11 AM - 12 AM' },
+    { label: '12 PM - 13 PM', value: '12 PM - 13 PM' },
+    { label: '13 PM - 14 PM', value: '13 PM - 14 PM' },
     { label: '14 PM - 15 PM', value: '14' },
     { label: '15 PM - 16 PM', value: '15' },
     { label: '16 PM - 17 PM', value: '16' },
@@ -62,6 +62,7 @@ const Booking = () => {
         ...form,
         accountId:(await getCurrentUser()).$id,
         time:value,
+        status : "BOOKING"
       })
 
       Alert.alert('Successfully Booking')

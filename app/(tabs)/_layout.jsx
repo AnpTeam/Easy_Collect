@@ -92,15 +92,15 @@ const Tabslayout = () => {
         />
 
         <Tabs.Screen
-          name="notification"
+          name="Camera"
           options={{
-            title: "notification",
+            title: "Camera",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.notification}
+                icon={icons.camera}
                 color={color}
-                name="notification"
+                name="Camera"
                 focused={focused}
               />
             ),

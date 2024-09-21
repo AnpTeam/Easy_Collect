@@ -13,6 +13,8 @@ import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 import notification from "../assets/icons/notification.png";
 import history from "../assets/icons/history.png";
+import camera from "../assets/icons/camera.png";
+import qrcode from "../assets/icons/qrcode.png";
 
 export default {
   play,
@@ -30,4 +32,6 @@ export default {
   eye,
   notification,
   history,
+  camera,
+  qrcode
 };
