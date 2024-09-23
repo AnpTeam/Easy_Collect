@@ -17,7 +17,7 @@ import CustomInfoBox from '../../components/CustomInfoBox';
 const Home = () => {
   const {data:posts,refetch} = useAppwrite(getAllPosts);
 
-const [refreshing, setRefreshing] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   const onRefresh = async () => {
     setRefreshing(true);
     await refetch();
