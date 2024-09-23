@@ -43,7 +43,7 @@ const submit = async () => {
 }
 
 return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-primary h-full mb-7">
         <ScrollView>
             {/* for make View Box */}
             <View className="justify-center h-full px-6 my-6 round-2xl">
@@ -114,8 +114,10 @@ return (
                 />
             </View>
 
-            {/* Text on Bottom */}
-            <View className="flex justify-center flex-row gap-2">
+             {/* Text on Bottom */}
+        </ScrollView>
+
+        <View className="flex justify-center flex-row gap-2 mt-2">
                 <Text className="text-lg text-gray-100 font-pregular">
                     Have an account already?
                 </Text>
@@ -127,8 +129,7 @@ return (
                 >
                     Sign In
                 </Link>
-          </View>
-        </ScrollView>
+            </View>
     </SafeAreaView>
   )
 };
