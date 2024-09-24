@@ -7,7 +7,7 @@ import { router } from 'expo-router'
 
 import {Dropdown} from "react-native-element-dropdown";
 import { useGlobalContext } from '../../context/GlobalProvider'
-import { createBooking, getCurrentUser } from "../../lib/appwrite";
+import { createBooking, getAccount, getCurrentUser } from "../../lib/appwrite";
 import { images } from '../../constants'
 
 const Booking = () => {
@@ -60,7 +60,7 @@ const Booking = () => {
     try{
       await createBooking({
         ...form,
-        accountId:(await getCurrentUser()).$id,
+        accountId:(await getAccount()).$id,
         time:value,
         status : "PENDING"
       })
@@ -80,10 +80,6 @@ const Booking = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView className="px-4 my-6">
-        <Text className="text-2xl text-white font-semibold">
-          Booking
-        </Text>
-
         <View className="flex mx-auto my-auto">
           <Image
             source={images.logo}
@@ -92,6 +88,11 @@ const Booking = () => {
           />
         </View>
 
+        <View>
+          <Text className="text-2xl text-white font-black">
+            Booking
+          </Text>
+        </View>
 
         <FormField
           title="Title"
@@ -120,7 +121,7 @@ const Booking = () => {
             setValue(item.value);
             setIsFocus(false);
           }}
-          className="mt-7 h-[50] border-2 rounded-lg px-8 border-yellow-400"
+          className="mt-2 h-[50] border-2 rounded-lg px-8 border-yellow-400"
         />
 
         <CustomButton

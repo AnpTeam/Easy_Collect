@@ -9,13 +9,15 @@ import SearchInput from '../../components/SearchInput'
 import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import VideoCard from '../../components/VideoCard';
-import { getAllPosts } from '../../lib/appwrite';
+import { getUserHistory } from '../../lib/appwrite';
 import useAppwrite from '../../lib/ueAppWrite';
-import CustomInfoBox from '../../components/CustomInfoBox';
+import CustomDateBox from '../../components/CustomDateBox';
+import { useGlobalContext } from '../../context/GlobalProvider';
 
 
 const History = () => {
-  const {data:posts,refetch} = useAppwrite(getAllPosts);
+  const {user} = useGlobalContext()
+  const {data:posts,refetch} = useAppwrite(() => getUserHistory(user.$id));
 
 const [refreshing, setRefreshing] = useState(false)
   const onRefresh = async () => {
@@ -33,38 +35,21 @@ const [refreshing, setRefreshing] = useState(false)
              data={posts}         
             keyExtractor={(item) => item.$id}
             renderItem={({item}) => (
-              <CustomInfoBox
+              <CustomDateBox
                 title={item.title}
-                time={item.time}
+                date={item.system_time}
                 username={item.username}
               />
             )}
 
             ListHeaderComponent={() =>(
               <View className="flex my-6 px-4 space-y-3">
-                <View className="flex justify-between items-start flex-row mb-1">
-                  <View>                  
-                    <Text className='text-2xl text-white font-semibold'>Easy Collect</Text>
-                  </View>
-
-                  <View className="mt-1.5">
-                    <Image 
-                      source={images.logo}
-                      className="w-9 h-10"
-                      resizeMode='contain'
-                    />
-                  </View>
-                </View>
-
-                <SearchInput/>
-
-                <Text className="mt-7 text-white text-semibold text-2xl mb-0">History</Text>
-                
+                <Text className="mt-7 text-white text-semibold text-2xl mb-0">History</Text>              
               </View>
             )}
             ListEmptyComponent={() => (
               <EmptyState
-              title="No Videos Found"
+              title="No Booking Found"
               subtitle="Be the first one to upload a video"
               />
             )}
