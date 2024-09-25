@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner'; //npx expo install expo-barcode-scanner
 import { router } from 'expo-router';
+import { getUpdate } from '../../lib/appwrite';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+
+
 
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
@@ -18,7 +21,7 @@ export default function App() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    router.push('/acceptChange')
+    getUpdate(data)
   };
 
   if (hasPermission === null) {
@@ -34,7 +37,7 @@ export default function App() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+      {scanned && <Button title={'Success!! Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
   );
 }

@@ -4,16 +4,16 @@ import QRCode from 'react-native-qrcode-svg' //npx expo install react-native-qrc
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomButton from '../components/CustomButton'
 import { router } from 'expo-router'
+import { useGlobalContext } from '../context/GlobalProvider'
 
 const qrcode = () => {
+    const {user} = useGlobalContext()
+
     const back = () =>{
         router.push('/home')
     }
 
-    const changeStatus = async () => {
-        await changeStatus()
 
-    }
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -22,10 +22,10 @@ const qrcode = () => {
             <Text className="text-2xl text-white">Please always show to staff</Text>
 
             <View className="mx-auto mt-3 p-3">
-                <QRCode
-                    value= {'/acceptChange'}
+                    <QRCode
+                    value= {user.$id}
                     size={300}
-                />
+                    />  
             </View>
 
 

@@ -15,6 +15,9 @@ import notification from "../assets/icons/notification.png";
 import history from "../assets/icons/history.png";
 import camera from "../assets/icons/camera.png";
 import qrcode from "../assets/icons/qrcode.png";
+import email from "../assets/icons/mail.png";
+import roomid from "../assets/icons/bed.png";
+import telephone from "../assets/icons/telephone.png";
 
 export default {
   play,
@@ -33,5 +36,8 @@ export default {
   notification,
   history,
   camera,
-  qrcode
+  qrcode,
+  email,
+  roomid,
+  telephone
 };

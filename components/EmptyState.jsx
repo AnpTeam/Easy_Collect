@@ -18,8 +18,8 @@ const EmptyState = ({title,subtitle}) => {
             </Text>
 
             <CustomButton
-                title="Create video"
-                handlePress={() => router.push('/create')}
+                title="Create Booking"
+                handlePress={() => router.push('/booking')}
                 containerStyles="w-full my-5"
             />
         </View>
