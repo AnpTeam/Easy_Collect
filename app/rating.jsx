@@ -1,13 +1,12 @@
 import { Text, ScrollView, Alert, Image, View, Button } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import FormField from '../../components/FormField'
-import CustomButton from '../../components/CustomButton'
+import CustomButton from '../components/CustomButton'
 import { router } from 'expo-router'
 
-import { useGlobalContext } from '../../context/GlobalProvider'
-import { createBooking, getAccount } from "../../lib/appwrite";
-import { images } from '../../constants'
+import { useGlobalContext } from '../context/GlobalProvider'
+import { createBooking, getAccount } from "../lib/appwrite";
+import { images } from '../constants'
 
 import { Rating } from 'react-native-ratings'; 
 

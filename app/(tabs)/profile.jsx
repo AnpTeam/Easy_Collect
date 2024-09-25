@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, FlatList, Image, Alert, Pressable, TouchableOpacity } from 'react-native'
-import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, FlatList, Image, Alert, Pressable, TouchableOpacity , Linking } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { icons } from '../../constants'
 import { images } from '../../constants'
 import { useGlobalContext } from '../../context/GlobalProvider';
-import { signOut } from '../../lib/appwrite';
+import { signOut , uploadImage} from '../../lib/appwrite';
 import { router } from 'expo-router';
 import InfoBox from '../../components/InfoBox';
 
@@ -52,11 +52,14 @@ const profile = () => {
 
               {/* ส่วนของชื่อบัญชี */}
               <View className="flex items-center">
+              <Pressable onPress={() => router.push('/imagepicker')}> 
                 <Image
                   source={{uri:user?.avatar}}
                   resizeMode="contain"
                   className="w-[234px] h-[75px] mb-3"
                 />
+              </Pressable>
+                
                 <Text className="font-medium text-gray-100 mt-2">
                   <InfoBox
                     title={"Welcome Back, " + user?.username}
@@ -70,7 +73,7 @@ const profile = () => {
               {/* ติดต่อทีมงาน & ประวัติการให้คะแนน */}
               <View className="flex flex-row justify-between border-t border-b border-gray-600 py-4">
                 <  View className="flex items-center mx-10 p-3">
-                  <Pressable onPress={() => Alert.alert('0972407510')}>
+                  <Pressable onPress={() => Linking.openURL(`tel:${'0972407510'}`)}>
                     <Image
                       source={images.staff}
                       resizeMode="contain"
@@ -81,11 +84,15 @@ const profile = () => {
                 </View>
 
                 <View className="flex items-center mx-10 p-3">
+                <Pressable onPress={() => router.push('/rating')}>
                   <Image
                     source={images.star}
                     resizeMode="contain"
                     className="w-[50px] h-[50px]"
                   />
+                </Pressable>
+
+                  
                   <Text className="font-medium text-gray-100 text-sm">Rating History</Text>
                 </View>
               </View>
