@@ -50,7 +50,7 @@ export default function App() {
 
         <CustomButton
           title="Go to Home"
-          handlePress={() => router.push('/acceptChange')}
+          handlePress={() => router.push('/home')}
           containerStyles="w-full mt-7"/>
       </View>
       </ScrollView>

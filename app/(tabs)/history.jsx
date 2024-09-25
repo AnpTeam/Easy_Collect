@@ -29,6 +29,7 @@ const [refreshing, setRefreshing] = useState(false)
   console.log(posts)
 
 
+
   return (
     <SafeAreaView className="bg-primary border-2 h-full">
           <FlatList
@@ -44,7 +45,7 @@ const [refreshing, setRefreshing] = useState(false)
 
             ListHeaderComponent={() =>(
               <View className="flex my-6 px-4 space-y-3">
-                <Text className="mt-7 text-white text-semibold text-2xl mb-0">History</Text>              
+                <Text className="mt-7 text-white text-semibold text-2xl mb-0 font-black">History</Text>              
               </View>
             )}
             ListEmptyComponent={() => (

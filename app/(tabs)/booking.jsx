@@ -7,7 +7,7 @@ import { router } from 'expo-router'
 
 import {Dropdown} from "react-native-element-dropdown";
 import { useGlobalContext } from '../../context/GlobalProvider'
-import { createBooking, getAccount, getCurrentUser } from "../../lib/appwrite";
+import { fetchRelationships, createBooking, } from "../../lib/appwrite";
 import { images } from '../../constants'
 
 const Booking = () => {
@@ -50,6 +50,11 @@ const Booking = () => {
 
   ];
 
+
+
+
+
+
   const submit = async () =>{
     if(!form.title || form.time){
       return Alert.alert('Please fill all  the field')
@@ -60,13 +65,14 @@ const Booking = () => {
     try{
       await createBooking({
         ...form,
-        accountId:(await getAccount()).$id,
+        accountId: user.$id ,
         time:value,
         status : "PENDING"
       })
 
       Alert.alert('Successfully Booking')
       router.push('/home')
+      setUploading(false)
     }catch (error){
       Alert.alert('Error',error.message)
     }finally{

@@ -58,33 +58,25 @@ const Home = () => {
 
             ListHeaderComponent={() =>(
               <View className="flex my-4 px-2 space-y-3">
-                <View className="flex justify-between items-start flex-row mb-1">
-                  <View className="mb-3">                  
-                    <Text className='text-sm text-white font-medium'>Welcome Back</Text>
-                    <Text className='text-2xl text-white font-semibold'>Easy Collect</Text>
-                  </View>
 
-                  <View className="mt-1.5">
-                    <Image 
-                      source={images.logo}
-                      className="w-9 h-10"
-                      resizeMode='contain'
-                    />
-                  </View>
-                </View>
-
-                <SearchInput/>
+                <View className="mt-1.5 items-center">
+                  <Image 
+                    source={images.logo}
+                    className="w-35 h-20"
+                    resizeMode='contain'
+                  />
+                 </View>
 
                   
                 <View className="w-full flex-1 pt-5 pb-4">
-                <Text className="mt-7 text-white text-white text-2xl mb-0">All Booking List</Text>
+                <Text className="mt-7 text-white text-white text-2xl mb-0 font-black">All Booking List</Text>
                 </View>
               </View>
             )}
             ListEmptyComponent={() => (
               <EmptyState
-              title="No Videos Found"
-              subtitle="Be the first one to upload a video"
+              title="No Booking Found"
+              subtitle="Please booking to get Queue"
               />
             )}
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}

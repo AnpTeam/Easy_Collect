@@ -37,7 +37,7 @@ const profile = () => {
         )}
         ListHeaderComponent={() => (
           <>
-            <View className="my-6 px-4">
+            <View className="my-3 px-4">
               <TouchableOpacity
                 className='w-fill items-end mb-10'
                 onPress={logout}
@@ -53,22 +53,22 @@ const profile = () => {
               {/* ส่วนของชื่อบัญชี */}
               <View className="flex items-center">
                 <Image
-                  source={images.logo}
+                  source={{uri:user?.avatar}}
                   resizeMode="contain"
-                  className="w-[345px] h-[105px]"
+                  className="w-[234px] h-[75px] mb-3"
                 />
-                <Text className="font-medium text-gray-100 text-sm">
+                <Text className="font-medium text-gray-100 mt-2">
                   <InfoBox
-                    title={user?.username}
-                    containerStyles='mt-1'
-                    titleStyles="text-lg-gray"
+                    title={"Welcome Back, " + user?.username}
+                    containerStyles='mt-4'
+                    titleStyles="text-2xl font-semibold"
                   />
                 </Text>
 
               </View>
 
               {/* ติดต่อทีมงาน & ประวัติการให้คะแนน */}
-              <View className="flex flex-row justify-between border-t border-b border-gray-600 py-4 mt-6">
+              <View className="flex flex-row justify-between border-t border-b border-gray-600 py-4">
                 <  View className="flex items-center mx-10 p-3">
                   <Pressable onPress={() => Alert.alert('0972407510')}>
                     <Image
@@ -90,11 +90,11 @@ const profile = () => {
                 </View>
               </View>
 
-              <View >
+              <View className="mt-4">
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2">
+                  <Text className="flex items-center text-white mb-2 font-semibold">
                     <Image
-                      source={images.star}
+                      source={icons.email}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
@@ -105,44 +105,44 @@ const profile = () => {
                     <InfoBox
                       title={user?.email}
                       containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium "
+                      titleStyles="text-white text-left font-medium mt-1"
                     />
                   </View>
                 </View>
 
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2">
+                  <Text className="flex items-center text-white mb-2 font-semibold">
                     <Image
-                      source={images.star}
+                      source={icons.roomid}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
-                    Room ID
+                    Room Number
                   </Text>
 
                   <View className="bg-gray-800 p-3 rounded-lg">
                     <InfoBox
                       title={user?.room_number}
                       containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium"
+                      titleStyles="text-white text-left font-medium mt-1"
                     />
                   </View>
                 </View>
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2">
+                  <Text className="flex items-center text-white mb-2 font-semibold">
                     <Image
-                      source={images.star}
+                      source={icons.telephone}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
-                    Tel
+                    Telephone
                   </Text>
 
                   <View className="bg-gray-800 p-3 rounded-lg">
                     <InfoBox    
                       title={user?.phone}
                       containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium"
+                      titleStyles="text-white text-left font-medium mt-1"
                     />
                   </View>
                 </View>
