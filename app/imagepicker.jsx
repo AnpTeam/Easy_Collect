@@ -1,21 +1,35 @@
-import {Alert ,Image, View } from 'react-native'
+import {Alert ,Image, View ,Text , TextInput} from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomButton from '../components/CustomButton'
-import { router } from 'expo-router'
-import {FormField} from '../components/FormField'
 
+import { router } from 'expo-router'
 import { updateProfile, } from "../lib/appwrite";
 
 
 
 const imagepicker = () => {
+  const [url,setUrl] = useState('')
+
   const submit = async () =>{
-    await updateProfile('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj0o3edEgdzS5dAC8UiB2vqvNYLPtZ9w4U_g&s')
+    await updateProfile(url)
+    setUrl('')
+    router.push('/profile')
   }
+
 
   return (
     <SafeAreaView className="bg-primary h-full">
+      <Text className="text-2xl text-white">Please Insert the url</Text>
+
+      <TextInput
+        className="text-white text-base border-yellow-400"
+        value={url}
+        placeholder={"Please insert url..."}
+        placeholderTextColor='#FFFF'
+        onChangeText={setUrl}   
+        />
+
       <CustomButton
           title="submit"
           handlePress={submit}
