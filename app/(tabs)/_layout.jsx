@@ -30,11 +30,11 @@ const Tabslayout = () => {
     <>
      <Tabs
         screenOptions={{
-          tabBarActiveTintColor: "#FFA001",
-          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarActiveTintColor: "#FFA001", // สีส้มสำหรับไอคอนที่ active
+          tabBarInactiveTintColor: "#787878", // สีเทาสำหรับไอคอนที่ inactive
           tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: "#161622",
+            backgroundColor: "#0F0F1C", // สีพื้นหลังเข้ม
             borderTopWidth: 1,
             borderTopColor: "#232533",
             height: 84,
