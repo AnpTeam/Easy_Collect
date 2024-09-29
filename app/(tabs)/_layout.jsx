@@ -34,10 +34,10 @@ const Tabslayout = () => {
           tabBarInactiveTintColor: "#787878", // สีเทาสำหรับไอคอนที่ inactive
           tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: "#0F0F1C", // สีพื้นหลังเข้ม
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
-            height: 84,
+            backgroundColor: "#FFFFFF", // สีพื้นหลังเข้ม
+            borderTopWidth: 2,
+            borderTopColor: "#E3E3E3",
+            height: 94,
           },
         }}
       >

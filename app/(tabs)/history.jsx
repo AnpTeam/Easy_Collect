@@ -44,8 +44,8 @@ const [refreshing, setRefreshing] = useState(false)
             )}
 
             ListHeaderComponent={() =>(
-              <View className="flex my-6 px-4 space-y-3">
-                <Text className="mt-7 text-white text-semibold text-2xl mb-0 font-black">History</Text>              
+              <View className="flex my-6 px-4 space-y-3 border-b-2 border-gray/25 w-4/12 mx-3">
+                <Text className="mt-7 text-black text-psemibold text-2xl mb-0">History</Text>              
               </View>
             )}
             ListEmptyComponent={() => (

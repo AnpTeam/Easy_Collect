@@ -44,27 +44,27 @@ const SignIn = () => {
 return (
     <SafeAreaView className="bg-primary h-full">
         <ScrollView>
-            {/* for make View Box */}
-            <View className="justify-center h-full px-4 my-6 round-2xl">
-
+            <View className="h-full px-4 my-28 w-full self-center">
                 {/* Logo Image */}
-                <Image
+                <View className="items-center">
+                  <Image
                     source={images.logo}
                     resizeMode="contain"
-                    className="w-[345px] h-[105px]"
-                />
+                    className="w-[250px] h-[125px]"
+                  />
+                </View>
 
                 {/* Text */}
-                <Text className="text-2xl text-white text-semibold mt-10 font-black">Log in to Easy Collect</Text>
+                <Text className="text-3xl text-black font-pregular mt-2">Log in to Easy Collect</Text>
                 
                 {/* TextBox Username */}
                 <FormField
                     title="Email"
                     value={form.email}
                     handleChangeText={(e) => setForm({...form,email:e})}
-                    otherStyles="mt-7"
+                    otherStyles="mt-3"
                     keyboardtype="email-address"
-                    placeholder={'email or username'}
+                    placeholder={'Enter the email'}
                 />
                 
                 {/* TextBox Password */}
@@ -72,35 +72,35 @@ return (
                     title="Password"
                     value={form.password}
                     handleChangeText={(e) => setForm({...form,password:e})}
-                    otherStyles="mt-7"
-                    placeholder={'password'}
+                    otherStyles="mt-3"
+                    placeholder={' Enter the password'}
                 />
 
                 {/* Forgot password */}
-                <Link href="/home" style={{color:'white'}} className=' mt-3'><Text className="text-md1">Forgot password?</Text></Link>
+                <Link href="/home" className='mt-2 mx-3 self-end'><Text className="text-sm font-pregular">Forgot password?</Text></Link>
 
                 {/* Sign in Button */}
                 <CustomButton
-                    title="Sign In"
+                    title="Log in"
                     handlePress={submit}
-                    containerStyles="mt-7"
+                    containerStyles="mt-7 w-full"
                     isLoading={isSubmitting}
                 />
-            </View>
 
-            {/* Texton Bottom */}
-            <View className="flex justify-center pt-5 flex-row gap-2">
-                <Text className="text-lg text-gray-100 font-pregular">
+                {/* Texton Bottom */}
+                <View className="flex justify-center pt-5 flex-row gap-2">
+                  <Text className="text-lg text-gray font-pregular">
                     Don't have an account?
-                </Text>
+                  </Text>
 
                 {/* Link for Sign Up */}
                 <Link
                     href="/sign-up"
-                    className="text-lg font-psemibold text-yellow-400"
+                    className="text-lg font-psemibold text-secondary"
                 >
-                    Signup
+                  Signup
                 </Link>
+            </View>
           </View>
         </ScrollView>
     </SafeAreaView>

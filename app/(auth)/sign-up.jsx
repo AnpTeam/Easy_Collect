@@ -46,26 +46,28 @@ return (
     <SafeAreaView className="bg-primary h-full mb-7">
         <ScrollView>
             {/* for make View Box */}
-            <View className="justify-center h-full px-6 my-6 round-2xl">
-
+            <View className="justify-center h-full px-6 my-6">
                 {/* Logo Image */}
-                <Image
+                <View className="self-center">
+                    <Image
                     source={images.logo}
                     resizeMode="contain"
-                    className="w-[115px] h-[75px] mt-0"
-                />
+                    className="w-[250px] h-[125px]"
+                    />      
+                </View>
+
 
                 {/* Text */}
-                <Text className="text-2xl text-white text-semibold mt-5 font-black">Sign Up to Easy Collect</Text>
+                <Text className="text-3xl text-black text-psemibold mt-5 mx-2">Sign Up to Easy Collect</Text>
                 
                 {/* TextBox Username */}
                 <FormField
                     title="Username"
                     value={form.username}
                     handleChangeText={(e) => setForm({...form,username:e})}
-                    otherStyles="mt-7"
+                    otherStyles="mt-3"
                     keyboardtype="text"
-                    placeholder={'username'}
+                    placeholder={'Enter the username'}
                 />
 
                 {/* TextBox Email */}
@@ -73,9 +75,9 @@ return (
                     title="Email"
                     value={form.email}
                     handleChangeText={(e) => setForm({...form,email:e})}
-                    otherStyles="mt-7"
+                    otherStyles="mt-3"
                     keyboardtype="email-address"
-                    placeholder={'email'}
+                    placeholder={'Enter the email'}
                 />
 
                 {/* TextBox Password */}
@@ -83,53 +85,54 @@ return (
                     title="Password"
                     value={form.password}
                     handleChangeText={(e) => setForm({...form,password:e})}
-                    otherStyles="mt-7"
-                    placeholder={'password'}
+                    otherStyles="mt-3"
+                    placeholder={'Enter the password'}
                 />
 
                 <FormField
-                    title="phone"
+                    title="telephone"
                     value={form.phone}
                     handleChangeText={(e) => setForm({...form,phone:e})}
-                    otherStyles="mt-7"
+                    otherStyles="mt-3"
                     keyboardtype="phone"
-                    placeholder={'XxxXxxXxxx'}
+                    placeholder={'Enter the telephone Ex.0999999999'}
                 />
 
                 <FormField
                     title="Room Number"
                     value={form.room_number}
                     handleChangeText={(e) => setForm({...form,room_number:e})}
-                    otherStyles="mt-7"
+                    otherStyles="mt-3"
                     keyboardtype="RoomNumber"
-                    placeholder={'XXX'}
+                    placeholder={'Enter the room number Ex.201'}
                 />
 
                 {/* Sign up Button */}
                 <CustomButton
                     title="Sign Up"
                     handlePress={submit}
-                    containerStyles="mt-7"
+                    containerStyles="mt-3"
                     isLoading={isSubmitting}
                 />
             </View>
 
-             {/* Text on Bottom */}
+
         </ScrollView>
 
+        {/* Text on Bottom */}
         <View className="flex justify-center flex-row gap-2 mt-2">
-                <Text className="text-lg text-gray-100 font-pregular">
+                <Text className="text-lg text-gray font-pregular">
                     Have an account already?
                 </Text>
 
                 {/* Link for Sign Up */}
                 <Link
                     href="/sign-in"
-                    className="text-lg font-psemibold text-yellow-400"
+                    className="text-lg font-psemibold text-secondary"
                 >
                     Sign In
                 </Link>
-            </View>
+        </View>
     </SafeAreaView>
   )
 };
