@@ -1,95 +1,99 @@
-import { View, Text, FlatList, Image, RefreshControl, Pressable, Linking, TouchableOpacity } from 'react-native';
+import { View, Text, SectionList, Image, RefreshControl, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { icons, images } from '..//../constants';
+import { images } from '..//../constants';
 import EmptyState from '../../components/EmptyState';
-import { getUserBooking } from '../../lib/appwrite';
+import { getUserBooking, getUserHistory } from '../../lib/appwrite';
 import useAppwrite from '../../lib/ueAppWrite';
 import CustomInfoBox from '../../components/CustomInfoBox';
+import CustomDateBox from '../../components/CustomDateBox';
 import { useGlobalContext } from '../../context/GlobalProvider';
 
-const Home = () => {
+const HomeAndHistory = () => {
   const { user } = useGlobalContext();
-  const { data: posts, refetch } = useAppwrite(() => getUserBooking(user.$id));
-
+  
+  // State for bookings and history
+  const { data: bookings, refetch: refetchBookings } = useAppwrite(() => getUserBooking(user.$id));
+  const { data: history, refetch: refetchHistory } = useAppwrite(() => getUserHistory(user.$id));
+  
   const [refreshing, setRefreshing] = useState(false);
+  
   const onRefresh = async () => {
     setRefreshing(true);
-    await refetch();
+    await Promise.all([refetchBookings(), refetchHistory()]);  // Refetch both data
     setRefreshing(false);
   };
 
+  // Create sections for the SectionList
+  const sections = [
+    {
+      title: 'Current Booking List',
+      data: bookings || [],  // Default to empty array if undefined
+    },
+    {
+      title: 'Booking History',
+      data: history || [],  // Default to empty array if undefined
+    },
+  ];
+
   return (
-    <SafeAreaView className="bg-gray-250 h-full">
-      <FlatList
-        data={posts}
+    <SafeAreaView className="bg-primary h-full">
+      <SectionList
+        sections={sections}
         keyExtractor={(item) => item.$id}
-        renderItem={({ item }) => (
-          <CustomInfoBox
-            title={item.title}
-            time={item.time}
-            username={item.username}
-            containerStyle={{
-              backgroundColor: '#000000',
-              padding: 20,
-              borderRadius: 15,
-              shadowColor: '#000',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.7,
-              shadowRadius: 4,
-              elevation: 6,
-              marginVertical: 12, 
-            }}
-          />
-        )}
-
-        
-        
+        renderItem={({ item, section }) => {
+          if (section.title === 'Current Booking List') {
+            return (
+              <CustomInfoBox
+                title={item.title}
+                time={item.time}
+                username={item.username}
+                containerStyle={{
+                  backgroundColor: '#000000',
+                  padding: 20,
+                  borderRadius: 15,
+                  shadowColor: '#000',
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.7,
+                  shadowRadius: 4,
+                  elevation: 6,
+                  marginVertical: 12,
+                }}
+              />
+            );
+          } else {
+            return (
+              <CustomDateBox
+                title={item.title}
+                date={item.system_time}
+                username={item.username}
+              />
+            );
+          }
+        }}
         ListHeaderComponent={() => (
-          <View className="my-4 px-4 space-y-4 mt-3">
-          {/* Logo Section */}
-          <View className="items-center mb-6">
-            {/* Logo Image */}
-            <View className="self-center">
-              <Image
-                source={images.logo}
-                resizeMode="contain"
-                className="w-[250px] h-[125px]"
-                shadowOffset='4'
-                shadowColor="#000000"
-                shadowOpacity='0.25'
-              />      
-            </View>
+          <View style={{ padding: 16, alignItems: 'center' }}>
+            <Image
+              source={images.logo}
+              resizeMode="contain"
+              style={{ width: 300, height: 150 }} // ขนาดที่เพิ่มขึ้น
+            />
           </View>
-
-      
-          {/* Heading Section */}
-          <View className="w-7/12 flex-1 pb-3 border-b-2 border-gray/25">
-            <Text className="text-black text-2xl font-pbold">
-              Current Booking List
-            </Text>     
-          </View>
-        </View>
         )}
-       
         ListEmptyComponent={() => (
           <EmptyState
-            title="No Booking Found"
-            subtitle="Please make a booking to get Queue"
-            containerStyle={{
-              backgroundColor: '#3C3C3C',
-              padding: 30,
-              borderRadius: 15,
-              marginTop: 60,
-            }}
-            titleStyle={{ color: '#FFD700', fontSize: 24, fontWeight: 'bold', textAlign: 'center' }}
-            subtitleStyle={{ color: '#FFFAFA', fontSize: 18, textAlign: 'center' }}
+            title="No Data Found"
+            subtitle="Please make a booking"
           />
         )}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#000', padding: 16 }}>
+            {title}
+          </Text>
+        )}
       />
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default HomeAndHistory;

@@ -90,14 +90,8 @@ const Booking = () => {
           <Image
             source={images.logo}
             resizeMode='contain'
-            className="w-[250] h-[200] mb-0"
+            className="w-[350] h-[200] mb-0"
           />
-        </View>
-
-        <View>
-          <Text className="text-2xl text-white font-black">
-            Booking
-          </Text>
         </View>
 
         <FormField
@@ -105,10 +99,10 @@ const Booking = () => {
           value={form.title}
           placeholder="Give a title"
           handleChangeText={(e) => setForm({...form,title:e})}
-          otherStyles="mt-10"
+          otherStyles=""
         />
 
-        <Text className="text-base text-white text bold mt-7">Time</Text>
+        <Text className="text-base text-black bold mt-5">Time</Text>
         <Dropdown
           style={[isFocus && { borderColor: 'blue' }]}
           data={data}
@@ -121,17 +115,17 @@ const Booking = () => {
           value={value}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
-          placeholderStyle={{ color: 'white' }}
+          placeholderStyle={{ color: 'gray' }}
           selectedTextStyle={{color:'white'}}
           onChange={item => {
             setValue(item.value);
             setIsFocus(false);
           }}
-          className="mt-2 h-[50] border-2 rounded-lg px-8 border-yellow-400"
+          className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400"
         />
 
         <CustomButton
-          title="submit"
+          title="Booking"
           handlePress={submit}  
           containerStyles="mt-7"
           isLoading={uploading}

@@ -58,7 +58,7 @@ return (
 
 
                 {/* Text */}
-                <Text className="text-3xl text-black text-psemibold mt-5 mx-2">Sign Up to Easy Collect</Text>
+                <Text className="text-2xl text-black text-psemibold mt-5 mx-2">Sign Up to Easy Collect</Text>
                 
                 {/* TextBox Username */}
                 <FormField

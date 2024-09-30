@@ -1,4 +1,4 @@
-import { View, Text, FlatList,Image, RefreshControl } from 'react-native'
+/*import { View, Text, FlatList,Image, RefreshControl } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useState } from "react";
@@ -60,4 +60,4 @@ const [refreshing, setRefreshing] = useState(false)
   )
 }
 
-export default History
+export default History*/

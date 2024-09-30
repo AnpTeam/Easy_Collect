@@ -80,7 +80,7 @@ const profile = () => {
                       className="w-[50px] h-[50px]"
                     />
                   </Pressable>
-                  <Text className="font-medium text-gray-100 text-sm">Contact Staff</Text>
+                  <Text className="font-medium text-black-100 text-sm">Contact Staff</Text>
                 </View>
 
                 <View className="flex items-center mx-10 p-3">
@@ -93,50 +93,50 @@ const profile = () => {
                 </Pressable>
 
                   
-                  <Text className="font-medium text-gray-100 text-sm">Rating History</Text>
+                  <Text className="font-medium text-black-100 text-sm">Rating History</Text>
                 </View>
               </View>
 
               <View className="mt-4">
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2 font-semibold">
+                  <Text className="flex items-center text-black mb-2 font-semibold">                   
+                    E-mail
                     <Image
                       source={icons.email}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
-                    E-mail
                   </Text>
 
-                  <View className="bg-gray-800 p-3 rounded-lg">
+                  <View className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400">
                     <InfoBox
                       title={user?.email}
-                      containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium mt-1"
+                      containerStyles="mt-2"
+                      titleStyles="text-black text-left font-medium mt-1"
                     />
                   </View>
                 </View>
 
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2 font-semibold">
+                  <Text className="flex items-center text-black mb-2 font-semibold">
+                  Room Number
                     <Image
                       source={icons.roomid}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
-                    />
-                    Room Number
+                    />                   
                   </Text>
 
-                  <View className="bg-gray-800 p-3 rounded-lg">
+                  <View className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400">
                     <InfoBox
                       title={user?.room_number}
                       containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium mt-1"
+                      titleStyles="text-black text-left font-medium mt-1"
                     />
                   </View>
                 </View>
                 <View className="mb-4">
-                  <Text className="flex items-center text-white mb-2 font-semibold">
+                  <Text className="flex items-center text-black mb-2 font-semibold">
                     <Image
                       source={icons.telephone}
                       resizeMode="contain"
