@@ -102,7 +102,7 @@ const Booking = () => {
           otherStyles=""
         />
 
-        <Text className="text-base text-black bold mt-5">Time</Text>
+        <Text className="text-lg font-psemibold mt-5">Time</Text>
         <Dropdown
           style={[isFocus && { borderColor: 'blue' }]}
           data={data}
@@ -116,12 +116,12 @@ const Booking = () => {
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           placeholderStyle={{ color: 'gray' }}
-          selectedTextStyle={{color:'white'}}
+          selectedTextStyle={{color:'black'}}
           onChange={item => {
             setValue(item.value);
             setIsFocus(false);
           }}
-          className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400"
+          className="mt-2 h-[50] border-2 rounded-[20px] px-2 border-black-400"
         />
 
         <CustomButton

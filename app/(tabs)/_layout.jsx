@@ -76,22 +76,6 @@ const Tabslayout = () => {
         />
 
         <Tabs.Screen
-          name="history"
-          options={{
-            title: "history",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.history}
-                color={color}
-                name="history"
-                focused={focused}
-              />
-            ),
-          }}
-        />
-
-        <Tabs.Screen
           name="Camera"
           options={{
             title: "Camera",

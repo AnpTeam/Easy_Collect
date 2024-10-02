@@ -60,7 +60,7 @@ const profile = () => {
                 />
               </Pressable>
                 
-                <Text className="font-medium text-gray-100 mt-2">
+                <Text className="font-medium mt-2">
                   <InfoBox
                     title={"Welcome Back, " + user?.username}
                     containerStyles='mt-4'
@@ -71,7 +71,7 @@ const profile = () => {
               </View>
 
               {/* ติดต่อทีมงาน & ประวัติการให้คะแนน */}
-              <View className="flex flex-row justify-between border-t border-b border-gray-600 py-4">
+              <View className="flex flex-row justify-between py-4">
                 <  View className="flex items-center mx-10 p-3">
                   <Pressable onPress={() => Linking.openURL(`tel:${'0972407510'}`)}>
                     <Image
@@ -99,13 +99,14 @@ const profile = () => {
 
               <View className="mt-4">
                 <View className="mb-4">
-                  <Text className="flex items-center text-black mb-2 font-semibold">                   
-                    E-mail
+                  <Text className="flex items-center text-black mb-2 font-semibold">   
                     <Image
                       source={icons.email}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
+
+                    <Text>E-mail</Text> 
                   </Text>
 
                   <View className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400">
@@ -119,15 +120,15 @@ const profile = () => {
 
                 <View className="mb-4">
                   <Text className="flex items-center text-black mb-2 font-semibold">
-                  Room Number
-                    <Image
+                                      <Image
                       source={icons.roomid}
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
-                    />                   
+                    /> 
+                    <Text>Room Number</Text>          
                   </Text>
 
-                  <View className="mt-2 h-[50] border-2 rounded-lg px-2 border-black-400">
+                  <View className="mt-2 h-[40] border-2 rounded-lg px-2 border-black-400">
                     <InfoBox
                       title={user?.room_number}
                       containerStyles="mt-1"
@@ -142,14 +143,14 @@ const profile = () => {
                       resizeMode="contain"
                       className="w-5 h-5 mr-2"
                     />
-                    Telephone
+                    <Text className="p-3">Telephone</Text>
                   </Text>
 
-                  <View className="bg-gray-800 p-3 rounded-lg">
+                  <View className="bg-primary p-1 rounded-lg border-2">
                     <InfoBox    
                       title={user?.phone}
                       containerStyles="mt-1"
-                      titleStyles="text-white text-left font-medium mt-1"
+                      titleStyles="text-black text-left font-medium mt-1"
                     />
                   </View>
                 </View>
