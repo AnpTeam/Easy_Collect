@@ -49,7 +49,7 @@ const rating = () => {
   }
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-white h-full">
       <ScrollView className="px-4 my-6">
         <View className="flex mx-auto my-auto">
           <Image
@@ -60,7 +60,7 @@ const rating = () => {
         </View>
 
         <View>
-          <Text className="text-2xl text-white font-black">
+          <Text className="text-2xl text-black font-black">
           Rate your experience:
           </Text>
         </View>

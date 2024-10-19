@@ -18,8 +18,7 @@ const qrcode = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
         <View className="px-4 my-6">
-            <Text className="text-3xl text-white text-bold">Your QR Code</Text>
-            <Text className="text-2xl text-white">Please always show to staff</Text>
+            <Text className="text-4xl text-black text-bold text-center">My QR Code</Text>
 
             <View className="mx-auto mt-3 p-3">
                     <QRCode
@@ -30,7 +29,7 @@ const qrcode = () => {
 
 
             <CustomButton
-                title="Return to Home"
+                title="Return to Home" 
                 handlePress={back}  
                 containerStyles="mt-7"
             />
