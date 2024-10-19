@@ -4,8 +4,8 @@ import email from 'react-native-email'; //npm install react-native-email
 
 const App = () => {
 
-    const handleEmail = () => {
-        const to = ['']; // Recipient email
+    const handleEmail = (email) => {
+        const to = email; // Recipient email
 
         email(to, {
             // Optional additional arguments
@@ -15,10 +15,7 @@ const App = () => {
     };
 
     return (
-        <View>
-
-            <Button title="Send Email" onPress={handleEmail} />
-        </View>
+        handleEmail(email)
     );
 };
 

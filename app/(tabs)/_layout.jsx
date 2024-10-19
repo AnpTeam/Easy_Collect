@@ -107,6 +107,22 @@ const Tabslayout = () => {
             ),
           }}
         />
+
+<Tabs.Screen
+          name="history"
+          options={{
+            title: "history",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.profile}
+                color={color}
+                name="profile"
+                focused={focused}
+              />
+            ),
+          }}
+        />
       </Tabs>
     </>
   )

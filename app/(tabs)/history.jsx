@@ -1,4 +1,4 @@
-/*import { View, Text, FlatList,Image, RefreshControl } from 'react-native'
+import { View, Text, FlatList,Image, RefreshControl, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useState } from "react";
@@ -9,15 +9,16 @@ import SearchInput from '../../components/SearchInput'
 import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import VideoCard from '../../components/VideoCard';
-import { getUserHistory } from '../../lib/appwrite';
+import { getAllUser, getUserHistory , sendEmail } from '../../lib/appwrite';
 import useAppwrite from '../../lib/ueAppWrite';
 import CustomDateBox from '../../components/CustomDateBox';
 import { useGlobalContext } from '../../context/GlobalProvider';
+import CustomAllUserbox from '../../components/CustomAllUserbox';
 
 
 const History = () => {
   const {user} = useGlobalContext()
-  const {data:posts,refetch} = useAppwrite(() => getUserHistory(user.$id));
+  const {data:posts,refetch} = useAppwrite(getAllUser);
 
 const [refreshing, setRefreshing] = useState(false)
   const onRefresh = async () => {
@@ -28,6 +29,9 @@ const [refreshing, setRefreshing] = useState(false)
 
   console.log(posts)
 
+  const handleEmail = (emails) => {
+    return sendEmail(emails)
+  }
 
 
   return (
@@ -36,16 +40,19 @@ const [refreshing, setRefreshing] = useState(false)
              data={posts}         
             keyExtractor={(item) => item.$id}
             renderItem={({item}) => (
-              <CustomDateBox
-                title={item.title}
-                date={item.system_time}
+              <TouchableOpacity 
+                onPress={() => handleEmail(item.email)}
+              >
+           <CustomAllUserbox
                 username={item.username}
+                roomnumber={item.room_number}
               />
+              </TouchableOpacity>
             )}
 
             ListHeaderComponent={() =>(
               <View className="flex my-6 px-4 space-y-3 border-b-2 border-gray/25 w-4/12 mx-3">
-                <Text className="mt-7 text-black text-psemibold text-2xl mb-0">History</Text>              
+                <Text className="mt-7 text-black text-psemibold text-2xl mb-0">All User</Text>              
               </View>
             )}
             ListEmptyComponent={() => (
@@ -60,4 +67,4 @@ const [refreshing, setRefreshing] = useState(false)
   )
 }
 
-export default History*/
+export default History
