@@ -3,7 +3,7 @@ import React from 'react'
 import {images , icons } from '../constants'
 import { router } from 'expo-router'
 
-const CustomInfoBox = ({ username, title, time }) => {
+const CustomInfoBox = ({  title, time }) => {
     const qrcode = () => {
         router.push('/qrcode')
     }

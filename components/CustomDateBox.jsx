@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View ,Image } from 'react-native'
+import { Text, View ,Image } from 'react-native'
 import React from 'react'
-import {images , icons } from '../constants'
+import {images} from '../constants'
 
-const CustomDateBox = ({ username, title, date }) => {
+const CustomDateBox = ({  title, date }) => {
 
   return (
     <View className="flex-col items-center px-4 mb-6">

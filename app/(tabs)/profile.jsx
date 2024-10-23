@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, FlatList, Image, Alert, Pressable, TouchableOpacity , Linking } from 'react-native'
-import React, { useState } from 'react'
+
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { icons } from '../../constants'
 import { images } from '../../constants'
 import { useGlobalContext } from '../../context/GlobalProvider';
-import { signOut , uploadImage} from '../../lib/appwrite';
+import { signOut } from '../../lib/appwrite';
 import { router } from 'expo-router';
 import InfoBox from '../../components/InfoBox';
 

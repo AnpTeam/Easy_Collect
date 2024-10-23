@@ -7,7 +7,7 @@ import { router } from 'expo-router'
 
 import {Dropdown} from "react-native-element-dropdown";
 import { useGlobalContext } from '../../context/GlobalProvider'
-import { fetchRelationships, createBooking, } from "../../lib/appwrite";
+import {  createBooking } from "../../lib/appwrite";
 import { images } from '../../constants'
 
 const Booking = () => {
