@@ -20,7 +20,7 @@ const CustomAllUserbox = ({ username, roomnumber }) => {
                             {username}
                         </Text>
                         <Text className="text-md text-gray font-pregular" numberOfLines={1} >
-                            {roomnumber} 
+                           Room : {roomnumber} 
                         </Text>
                     </View>
                 </View>
