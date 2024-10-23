@@ -3,13 +3,9 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { images } from '../../constants';
-import SearchInput from '../../components/SearchInput';
-import Trending from '../../components/Trending';
 import EmptyState from '../../components/EmptyState';
-import VideoCard from '../../components/VideoCard';
 import { getAllUser, getUserHistory, sendEmail } from '../../lib/appwrite';
 import useAppwrite from '../../lib/ueAppWrite';
-import CustomDateBox from '../../components/CustomDateBox';
 import { useGlobalContext } from '../../context/GlobalProvider';
 import CustomAllUserbox from '../../components/CustomAllUserbox';
 
