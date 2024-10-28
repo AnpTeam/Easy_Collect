@@ -1,4 +1,4 @@
-
+import {Alert ,Image, View ,Text , TextInput} from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomButton from '../components/CustomButton'
@@ -19,14 +19,14 @@ const imagepicker = () => {
 
 
   return (
-    <SafeAreaView className="bg-primary h-full">
-      <Text className="text-2xl text-white">Please Insert the url</Text>
+    <SafeAreaView className="bg-primary h-full font-psemibold">
+      <Text className="text-2xl">Please Insert the url</Text>
 
       <TextInput
-        className="text-white text-base border-yellow-400"
+        className=" text-base border-yellow-400"
         value={url}
         placeholder={"Please insert url..."}
-        placeholderTextColor='#FFFF'
+        placeholderTextColor='#00000'
         onChangeText={setUrl}   
         />
 

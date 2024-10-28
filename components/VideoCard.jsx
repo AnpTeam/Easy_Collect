@@ -1,8 +1,8 @@
-import {View,Text,  TouchableOpacity,Image} from 'react-native'
+import {View,Text, Touchable, TouchableOpacity,Image} from 'react-native'
 import { icons } from '../constants'
 import React, { useState } from 'react'
 
-const VideoCard = ({ title, creator, avatar, thumbnail }) => {
+const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
     const [play, setPlay] = useState(false);
     return(
         <View className="flex-col items-center px-4 mb-14">

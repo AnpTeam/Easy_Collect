@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner'; //npx expo install expo-barcode-scanner
+import { router } from 'expo-router';
 import { getUpdate } from '../../lib/appwrite';
 
 export default function App() {

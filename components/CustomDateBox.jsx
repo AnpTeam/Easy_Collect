@@ -1,7 +1,6 @@
-import { Text, View ,Image } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View ,Image } from 'react-native'
 import React from 'react'
-import {images} from '../constants'
-
+import {images , icons } from '../constants'
 const CustomDateBox = ({  title, date }) => {
 
   return (

@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { images } from '../../constants';
+import SearchInput from '../../components/SearchInput';
+import Trending from '../../components/Trending';
 import EmptyState from '../../components/EmptyState';
+import VideoCard from '../../components/VideoCard';
 import { getAllUser, getUserHistory, sendEmail } from '../../lib/appwrite';
 import useAppwrite from '../../lib/ueAppWrite';
+import CustomDateBox from '../../components/CustomDateBox';
 import { useGlobalContext } from '../../context/GlobalProvider';
 import CustomAllUserbox from '../../components/CustomAllUserbox';
 
@@ -34,7 +38,7 @@ const Notification = () => {
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => handleEmail(item.email)}>
-            <CustomAllUserbox username={item.username} roomnumber={item.room_number} />
+            <CustomAllUserbox username={item.username} roomnumber={item.room_number} avatars={item.avatar}/>
           </TouchableOpacity>
         )}
         ListHeaderComponent={() => (
