@@ -7,6 +7,7 @@ import logoSmall from "../assets/images/logo-small.png";
 import empty from "../assets/images/empty.png";
 import star from "../assets/images/star.png";
 import staff from "../assets/images/staff.png";
+import logohome from "../assets/images/logo-home.png";
 
 export default { 
     profile, 
@@ -17,4 +18,6 @@ export default {
     logoSmall, 
     empty,  
     star,
-    staff };
+    staff ,
+    logohome
+};

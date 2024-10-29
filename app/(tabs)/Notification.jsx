@@ -44,7 +44,7 @@ const Notification = () => {
         ListHeaderComponent={() => (
           <View style={{ padding: 16, alignItems: 'center' }}>
             <Image
-              source={images.logo}
+              source={images.logohome}
               resizeMode="contain"
               style={{ width: 300, height: 150 }} // Adjusted size
             />

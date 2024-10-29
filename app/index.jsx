@@ -18,7 +18,7 @@ export default function App() {
     <SafeAreaView className="bg-primary h-full">
       <View className="w-full justify-center items-center min-h-[85vh] px-4">
         <Image
-          source={images.logo}
+          source={images.logohome}
           resizeMode="contain"
           className="w-[345px] h-[105px] my-[25px]"
         />       

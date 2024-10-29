@@ -21,7 +21,7 @@ const rating = () => {
   const [rating, setRating] = useState(0); 
 
   const submit = async () => {
-    if (!form.title || !rating) {
+    if ( !rating) {
       return Alert.alert('Please fill all the fields')
     }
 
@@ -35,7 +35,7 @@ const rating = () => {
         status: "PENDING"
       })
 
-      Alert.alert('Successfully Booking')
+      Alert.alert('Successfully Rating')
       router.push('/home')
     } catch (error) {
       Alert.alert('Error', error.message)
@@ -49,7 +49,7 @@ const rating = () => {
   }
 
   return (
-    <SafeAreaView className="bg-white h-full">
+    <SafeAreaView className="bg-primary h-full">
       <ScrollView className="px-4 my-6">
         <View className="flex mx-auto my-auto">
           <Image
@@ -69,10 +69,11 @@ const rating = () => {
         <Rating
           type="star"
           ratingCount={5}
-          imageSize={40}
+          imageSize={50}
           showRating
           onFinishRating={(rating) => setRating(rating)} 
           style={{ paddingVertical: 10 }}
+          tintColor='#E3E3E3'
         />
 
         <CustomButton

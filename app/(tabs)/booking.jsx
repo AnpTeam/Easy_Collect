@@ -88,7 +88,7 @@ const Booking = () => {
       <ScrollView className="px-4 my-6">
         <View className="flex mx-auto my-auto">
           <Image
-            source={images.logo}
+            source={images.logohome}
             resizeMode='contain'
             className="w-[350] h-[200] mb-0"
           />

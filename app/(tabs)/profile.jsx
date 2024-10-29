@@ -64,7 +64,7 @@ const profile = () => {
                   <InfoBox
                     title={"Welcome Back, " + user?.username}
                     containerStyles='mt-4'
-                    titleStyles="text-2xl font-semibold"
+                    titleStyles="text-3xl font-psemibold"
                   />
                 </Text>
 
