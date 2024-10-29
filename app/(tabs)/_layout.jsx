@@ -58,22 +58,6 @@ const Tabslayout = () => {
             ),
           }}
         />
-
-        <Tabs.Screen
-          name="booking"
-          options={{
-            title: "Booking",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.bookmark}
-                color={color}
-                name="Booking"
-                focused={focused}
-              />
-            ),
-          }}
-        />
         
         <Tabs.Screen
           name="profile"
@@ -90,6 +74,38 @@ const Tabslayout = () => {
             ),
           }}
         />
+
+        <Tabs.Screen
+          name="Camera"
+          options={{
+            title: "Camera",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.camera}
+                color={color}
+                name="Camera"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="Notification"
+          options={{
+            title: "Notification",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.notification}
+                color={color}
+                name="Notification"
+                focused={focused}
+              />
+            ),
+          }}
+        />        
       </Tabs>
     </>
   )
